@@ -1,0 +1,132 @@
+.menuMain {
+    background-color: var(--bg-cream);
+    min-height: 100vh;
+}
+
+.header {
+    padding: 180px 10% 60px;
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-climate);
+    font-size: 5rem;
+    color: var(--bold-blue);
+}
+
+.subtitle {
+    font-family: "Inter", sans-serif;
+    color: var(--bold-blue);
+    margin-bottom: 30px;
+}
+
+.container {
+    padding: 0 10% 100px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    min-height: 400px;
+    /* Menjaga layout saat filter kosong/berubah */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.imageBox {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info h3 {
+    font-family: "Inter", sans-serif;
+    color: var(--bold-blue);
+    font-size: 1rem;
+}
+
+.footer {
+    padding: 4rem 10%;
+    background-color: var(--bold-blue);
+    /* Warna biru sesuai screenshot kamu */
+    text-align: center;
+    position: relative;
+    /* WAJIB */
+    z-index: 100;
+    /* Paling tinggi agar menutupi segalanya */
+    color: var(--bg-white);
+    /* Agar teks putih di atas background biru */
+}
+
+.footer p {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    /* Putih transparan agar soft */
+    margin: 0;
+}
+
+.tabContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.tabBtn {
+    background: none;
+    border: none;
+    font-family: var(--font-climate);
+    font-size: 1rem;
+    color: #999;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.activeTab {
+    color: var(--bold-blue);
+}
+
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--bold-blue);
+    border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+    .tabContainer {
+        gap: 1rem;
+    }
+
+    .tabBtn {
+        font-size: 0.8rem;
+    }
+}

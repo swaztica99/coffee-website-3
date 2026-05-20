@@ -1,0 +1,43 @@
+/* src/components/Navbar.module.css */
+.navbar {
+    position: fixed;
+    /* Membuat navbar melayang */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background-color: var(--bg-white);
+    /* Background putih bersih */
+    z-index: 1000;
+    /* Pastikan di atas elemen lain */
+    /* Shadow halus agar terlihat terpisah */
+}
+
+/* Tambahkan sedikit margin top pada elemen pertama di page agar tidak tertutup navbar */
+
+.logo {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--bold-blue);
+}
+
+.navLinks {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.navLinks a {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--bold-blue);
+    transition: 0.3s;
+}
+
+.navLinks a:hover {
+    opacity: 50%;
+}

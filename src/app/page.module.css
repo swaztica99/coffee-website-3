@@ -1,142 +1,387 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
 .main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  background-color: var(--bg-white);
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
+.hero {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  position: sticky;
+  /* Membuat section hero diam di tempat */
+  top: 0;
+  z-index: 1;
+  /* Layer bawah */
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.bigTitle {
+  font-family: var(--font-climate);
+  font-size: 10vw;
+  color: var(--bold-blue);
+  letter-spacing: 0em;
+  z-index: 1;
+  /* Di belakang tangan */
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: 10;
+  /* Di depan teks MOMENTO */
+  width: 590px;
+}
+
+.coffeeImg {
+  width: 100%;
+  height: auto;
+  /* Tambahkan shadow halus agar terlihat depth-nya */
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.15));
+}
+
+/* Section About tetap seperti sebelumnya */
+.aboutSection {
+  background-color: var(--bold-blue);
+  /* Warna biru solid */
+  position: relative;
+  z-index: 10;
+  /* Layer atas - Ini yang akan 'menelan' gambar tangan */
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  /* Box shadow di atas untuk memberikan kesan kedalaman saat menutupi hero */
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+.aboutContent {
+  flex: 1;
+  color: var(--bg-white);
+}
+
+.aboutTitle {
+  font-family: var(--font-climate);
+  font-size: 4rem;
+  width: 590px;
+  margin-bottom: 1.5rem;
+}
+
+.aboutText {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.aboutImageSide {
+  flex: 1;
+}
+
+.aboutImage {
+  flex: 1;
+}
+
+.buildingImg {
+  width: 100%;
+  height: auto;
+}
+
+.footerSpace {
+  height: 50vh;
+  background-color: var(--bold-blue);
+}
+
+/* Section Highlight */
+.highlightSection {
+  background-color: var(--bg-white);
+  /* Kembali ke warna putih/cream */
+  padding: 100px 10%;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  /* Lebih tinggi agar menutupi section sebelumnya saat scroll */
+}
+
+.highlightTitle {
+  font-family: var(--font-climate);
+  font-size: 3.5rem;
+  color: var(--bold-blue);
+  /* Biru tegas sesuai Figma */
+  margin-bottom: 4rem;
+  letter-spacing: 0em;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 kolom sejajar */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menuCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
   cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.menuCard:hover {
+  transform: translateY(-10px);
+  /* Efek angkat sedikit saat hover */
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.menuImageBox {
+  width: 100%;
+  aspect-ratio: 4/4;
+  /* Membuat kotak gambar seragam potrait */
+  overflow: hidden;
+  background-color: #eee;
+  /* Placeholder jika gambar belum ada */
+  margin-bottom: 1.5rem;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.menuImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Gambar akan memenuhi kotak tanpa distorsi */
+}
+
+.menuItemName {
+  font-family: "Inter", sans-serif;
+  /* Menggunakan font tebal yang sama */
+  color: var(--bold-blue);
+  font-size: 1.1rem;
+}
+
+.buttonCenterWrapper {
+  display: flex;
+  justify-content: center;
+  /* Menengahkan secara horizontal */
+  align-items: center;
+  /* Menengahkan secara vertikal (jika perlu) */
+  width: 100%;
+  /* Memastikan wrapper selebar layar */
+  margin-top: 4rem;
+  /* Jarak dari grid atas */
+  clear: both;
+  /* Memastikan tidak terganggu elemen floating */
+}
+
+.moreMenuBtn {
+  background-color: var(--bold-blue);
+  color: var(--bg-white);
+  padding: 1rem 2rem;
+  font-family: var(--font-climate);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  /* Memastikan button berperilaku sebagai block di dalam flex */
+}
+
+.moreMenuBtn:hover {
+  background-color: var(--bold-hover);
+  color: var(--bg-white);
+}
+
+.moreMenuBtn:active {
+  transform: translateY(-1px);
+}
+
+.locationSection {
+  background-color: var(--bold-blue);
+  padding: 120px 10%;
+  position: relative;
+  /* WAJIB: agar z-index berfungsi */
+  z-index: 50;
+  border-bottom: 0.1px solid var(--bg-white);
+  /* Lebih tinggi dari z-index gambar tangan (misal 10 atau 30) */
+}
+
+.locationContainer {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.locationInfo {
+  flex: 1;
+}
+
+.locationTitle {
+  font-family: var(--font-climate);
+  font-size: 4rem;
+  color: var(--bg-white);
+  margin-bottom: 3rem;
+  letter-spacing: 0.01em;
+}
+
+.locationDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.detailGroup h3 {
+  font-size: 0.8rem;
+  color: var(--bg-white);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.detailGroup p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--bg-white);
+}
+
+.directionBtn {
+  background-color: var(--bg-white);
+  color: var(--bold-blue);
+  border: none;
+  padding: 1rem 2rem;
+  font-family: var(--font-climate);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.directionBtn:hover {
+  opacity: 50%;
+}
+
+.locationMapBox {
+  flex: 1;
+  height: 500px;
+  /* Tinggi peta */
+  overflow: hidden;
+  /* Border biru tegas sesuai tema */
+  position: relative;
+}
+
+.googleMap {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(50%) contrast(100%);
+  /* Membuat warna map sedikit lebih kalem */
+}
+
+.mapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Filter hitam putih opsional agar lebih minimalis */
+  filter: grayscale(20%);
+}
+
+/* Footer */
+.footer {
+  padding: 4rem 10%;
+  background-color: var(--bold-blue);
+  /* Warna biru sesuai screenshot kamu */
+  text-align: center;
+  position: relative;
+  /* WAJIB */
+  z-index: 100;
+  /* Paling tinggi agar menutupi segalanya */
+  color: var(--bg-white);
+  /* Agar teks putih di atas background biru */
+}
+
+.footer p {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+  /* Putih transparan agar soft */
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .menuGrid {
+    grid-template-columns: 1fr;
+    /* 1 kolom di HP */
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .highlightTitle {
+    font-size: 2.5rem;
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .bigTitle {
+    font-size: 25vw;
   }
 
-  .intro {
-    gap: 16px;
+  .imageWrapper {
+    width: 300px;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  .aboutSection {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+@media (max-width: 968px) {
+  .aboutContainer {
+    flex-direction: column;
+    text-align: left;
   }
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+  .aboutTitle {
+    font-size: 3rem;
+  }
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
+  .aboutImageSide {
+    justify-content: center;
+    width: 100%;
+  }
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .locationContainer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .locationTitle {
+    font-size: 3rem;
+  }
+
+  .locationMapBox {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menuGrid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 kolom di tablet */
   }
 }

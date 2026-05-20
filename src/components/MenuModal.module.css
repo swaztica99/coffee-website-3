@@ -1,0 +1,128 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Hitam transparan */
+    backdrop-filter: blur(8px);
+    /* Efek kaca buram (Premium!) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Pastikan di atas navbar */
+    padding: 20px;
+}
+
+.modal {
+    background: white;
+    width: 100%;
+    max-width: 850px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    /* PENTING: Agar tombol X memposisikan diri terhadap kotak ini */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    /* Memastikan isi di dalamnya tertata */
+}
+
+.closeBtn {
+    position: absolute;
+    background: transparent;
+    /* Tetap absolute */
+    top: 20px;
+    /* Jarak dari atas kotak putih */
+    right: 20px;
+    /* Jarak dari kanan kotak putih */
+    /* Berikan background sedikit agar terlihat minimalis */
+    border: none;
+    /* Membuat tombol bulat */
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--bold-blue);
+    cursor: pointer;
+    z-index: 100;
+    /* Pastikan di atas gambar dan teks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.imageSide {
+    flex: 1;
+    height: 400px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.infoSide {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.name {
+    font-family: var(--font-climate);
+    color: var(--bold-blue);
+    font-size: 2rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.desc {
+    color: #666;
+    line-height: 1.6;
+}
+
+.orderBtn {
+    background: var(--bold-blue);
+    color: white;
+    border: none;
+    padding: 1rem;
+    margin-top: auto;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.orderBtn:hover {
+    background-color: var(--bold-hover);
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .closeBtn {
+        top: 15px;
+        right: 15px;
+        background: white;
+        /* Pada mobile agar lebih kontras di atas gambar */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .imageSide {
+        height: 250px;
+    }
+}
