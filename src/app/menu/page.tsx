@@ -54,7 +54,7 @@ export default function MenuPage() {
                             <motion.div
                                 key={item.id}
                                 layout // Properti ini yang biasanya bertabrakan dengan CSS transform
-                                whileHover={{ y: -15 }} // Gantikan hover CSS dengan ini
+                                whileHover={{ y: -10 }} // Gantikan hover CSS dengan ini
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}

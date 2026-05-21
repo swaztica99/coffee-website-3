@@ -54,7 +54,6 @@
 
 .content {
     display: flex;
-    width: 100%;
     flex-direction: row;
 }
 
@@ -110,19 +109,42 @@
 }
 
 @media (max-width: 768px) {
-    .content {
-        flex-direction: column;
+    .modal {
+        width: 95%;
+        max-height: 90vh;
+        top: 4%;
+        overflow-y: auto;
+        /* Bisa di-scroll jika konten kepanjangan di HP */
     }
 
-    .closeBtn {
-        top: 15px;
-        right: 15px;
-        background: white;
-        /* Pada mobile agar lebih kontras di atas gambar */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .content {
+        flex-direction: column;
+        /* Tumpuk gambar di atas, teks di bawah */
     }
 
     .imageSide {
-        height: 250px;
+        min-height: 250px;
+    }
+
+    .infoSide {
+        padding: 20px;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .closeBtn {
+        color: var(--bg-white);
+    }
+}
+
+@media (max-width: 400px) {
+    .modal {
+        width: 95%;
+        max-height: 80vh;
+        top: 4%;
+        overflow-y: auto;
+        /* Bisa di-scroll jika konten kepanjangan di HP */
     }
 }

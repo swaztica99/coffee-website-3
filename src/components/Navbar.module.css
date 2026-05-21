@@ -1,43 +1,136 @@
-/* src/components/Navbar.module.css */
 .navbar {
     position: fixed;
-    /* Membuat navbar melayang */
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 10%;
-    background-color: var(--bg-white);
-    /* Background putih bersih */
-    z-index: 1000;
-    /* Pastikan di atas elemen lain */
-    /* Shadow halus agar terlihat terpisah */
+    /* Desktop */
+    background-color: rgba(255, 255, 255, 0.87);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    box-sizing: border-box;
 }
-
-/* Tambahkan sedikit margin top pada elemen pertama di page agar tidak tertutup navbar */
 
 .logo {
-    font-size: 1rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-family: var(--font-climate);
+    font-size: 1.2rem;
+    /* Ukuran yang aman */
     color: var(--bold-blue);
-}
-
-.navLinks {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-
-.navLinks a {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--bold-blue);
+    z-index: 10002;
+    white-space: nowrap;
     transition: 0.3s;
 }
 
-.navLinks a:hover {
-    opacity: 50%;
+.logo:hover {
+    opacity: 80%;
+}
+
+.desktopLinks {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.desktopLinks a {
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--bold-blue);
+    transition: 0.3s ease;
+}
+
+.desktopLinks a:hover {
+    opacity: 70%;
+}
+
+/* HAMBURGER BUTTON */
+.hamburger {
+    display: none;
+    /* Default sembunyi di desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    /* Sedikit dikecilkan agar proporsional di mobile */
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10002;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--bold-blue);
+    transition: all 0.3s ease;
+}
+
+/* Animasi Hamburger ke X */
+.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* MOBILE OVERLAY */
+.mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-white);
+    /* Kembali ke warna cream khas kita */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+}
+
+.mobileLinks {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.mobileLinks a {
+    font-family: var(--font-climate);
+    font-size: 2.5rem;
+    color: var(--bold-blue);
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 5%;
+        /* Perkecil padding agar logo tidak terdorong keluar */
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+        /* Sedikit lebih kecil di mobile */
+    }
+
+    .desktopLinks {
+        display: none;
+        /* Sembunyikan link biasa di mobile */
+    }
+
+    .hamburger {
+        display: flex;
+        /* Pastikan tidak ada margin-right yang mendorongnya keluar */
+        margin-right: 0;
+    }
 }

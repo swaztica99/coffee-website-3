@@ -4,7 +4,7 @@
 }
 
 .header {
-    padding: 180px 10% 60px;
+    padding: 150px 10% 50px;
     text-align: center;
 }
 
@@ -105,6 +105,11 @@
     padding: 10px 0;
     transition: color 0.3s ease;
     letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.tabBtn:hover {
+    color: var(--bold-blue);
 }
 
 .activeTab {
@@ -121,9 +126,36 @@
     border-radius: 2px;
 }
 
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+        /* Fokus 1 produk per baris di HP kecil */
+    }
+}
+
 @media (max-width: 640px) {
     .tabContainer {
         gap: 1rem;
+    }
+
+    .tabBtn {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 120px 5% 40px;
+    }
+
+    .title {
+        font-size: 3.5rem;
+        /* Judul OUR MENU mengecil */
+    }
+
+    .tabContainer {
+        gap: 0.8rem;
+        /* Tab kategori lebih rapat */
     }
 
     .tabBtn {
